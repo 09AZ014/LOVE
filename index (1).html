@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uma Pergunta Especial</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #fdf2f8;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff69b4;
+            margin-bottom: 30px; /* espaço abaixo do título */
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* espaço entre as imagens */
+            margin-bottom: 30px; /* espaço abaixo das imagens */
+        }
+
+        .image-container img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* bordas arredondadas para deixar as imagens fofas */
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra suave */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            margin: 0 20px; /* margem entre os botões */
+            cursor: pointer;
+            position: relative;
+        }
+
+        #noButton {
+            transition: all 0.2s ease;
+        }
+
+        #message {
+            display: none;
+            font-size: 2em;
+            color: #32cd32;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Vais viver cmg para sempre?</h1>
+
+    <div class="image-container">
+        <img src="https://i.pinimg.com/564x/0e/19/7a/0e197adf3147f688fd0af047c58365c9.jpg" alt="Imagem fofa 1">
+        <img src="data:image/jpeg;base64,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" alt="Imagem fofa 2">
+        <img src="https://i.pinimg.com/736x/1d/b2/32/1db232ce2559624d6ebc2c71242250c7.jpg" alt="Imagem fofa 3">
+    </div>
+
+    <div class="button-container">
+        <button onclick="yesAnswer()">Sim</button>
+        <button id="noButton" onclick="noAnswer()">Não</button>
+    </div>
+
+    <div id="message"></div>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+        let noClicks = 0;
+
+        function yesAnswer() {
+            document.getElementById('message').innerHTML = "Eu sabia! ❤️ AMO-TE!";
+            document.getElementById('message').style.display = "block";
+        }
+
+        function noAnswer() {
+            noClicks++;
+            const maxLeft = window.innerWidth - noButton.offsetWidth;
+            const maxTop = window.innerHeight - noButton.offsetHeight - 150; // ajusta para não sobrepor o texto e as imagens
+
+            const randomLeft = Math.random() * maxLeft;
+            const randomTop = Math.random() * maxTop;
+
+            noButton.style.left = randomLeft + 'px';
+            noButton.style.top = randomTop + 'px';
+            noButton.style.position = 'absolute'; // começa a mover-se
+            noButton.style.fontSize = (30 - noClicks * 2) + 'px'; // O botão vai ficando menor
+
+            if (parseInt(noButton.style.fontSize) <= 0) {
+                noButton.style.display = 'none'; // O botão some completamente
+            }
+        }
+    </script>
+
+</body>
+</html>
